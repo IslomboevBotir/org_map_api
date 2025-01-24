@@ -2,7 +2,6 @@
 # Start Uvicorn processes
 echo "Starting Uvicorn."
 
-# Получаем порт из переменной окружения, если она не установлена — используем дефолтный 8000
 PORT=${APP_PORT:-8000}
 
 # Running Uvicorn server

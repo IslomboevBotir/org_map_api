@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  fastapi_app:
+  api:
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,7 +15,14 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     depends_on:
       - db
-    command: ["bash", "-c", "alembic upgrade head && bash start_api.sh"]
+    volumes:
+      - ./init.sql:/app/init.sql
+    command: [
+      "bash", "-c", "
+        sleep 10 && \
+        alembic upgrade head && \
+        bash start_api.sh"
+    ]
 
   db:
     image: postgis/postgis:latest

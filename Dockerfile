@@ -12,4 +12,3 @@ RUN chmod +x /app/start_api.sh
 
 EXPOSE 8000
 
-CMD ["bash", "/app/start_api.sh"]
