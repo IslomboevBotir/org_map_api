@@ -9,6 +9,7 @@ from src.entities.organizations import OrganizationSchema
 
 organizations_in_building_adapters = TypeAdapter(list[OrganizationsInBuildingSchema])
 organizations_activity_adapters = TypeAdapter(list[OrganizationsActivitySchema])
+organizations_type_adapters = TypeAdapter(list[OrganizationSchema])
 
 
 class OrganizationInBuildingSerializer(BaseListSerializer):
@@ -24,3 +25,8 @@ class OrganizationsInActivitySerializer(BaseListSerializer):
 class OrganizationDetailSerializer(BaseSerializer):
     def serialize(self, value: Mapping, **kwargs) -> OrganizationSchema:
         return OrganizationSchema.model_validate(value)
+
+
+class OrganizationsNearbySerializer(BaseListSerializer):
+    def serializer_list(self, value: Mapping, **kwargs) -> list[OrganizationSchema]:
+        return organizations_type_adapters.validate_python(value, **kwargs)

@@ -1,5 +1,5 @@
 from sqlalchemy import String, ForeignKey, Integer
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 
 from src.models.base import Base
 
@@ -14,9 +14,3 @@ class Activity(Base):
         ForeignKey("activity.id"),
         nullable=True
     )
-
-    # parent: Mapped["Activity"] = relationship(
-    #     "Activity",
-    #     remote_side="Activity.id",
-    #     backref="children"
-    # )

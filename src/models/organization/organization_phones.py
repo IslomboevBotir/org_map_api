@@ -1,8 +1,7 @@
 from sqlalchemy import String, ForeignKey, Integer
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 
 from src.models.base import Base
-from src.models.organization.organization import Organization
 
 
 class OrganizationPhone(Base):
@@ -19,8 +18,3 @@ class OrganizationPhone(Base):
         nullable=False
     )
     phone_number: Mapped[str] = mapped_column(String(20), nullable=False)
-
-    # organization: Mapped["Organization"] = relationship(
-    #     "Organization",
-    #     back_populates="organization_phones"
-    # )

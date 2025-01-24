@@ -1,13 +1,8 @@
-from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, Integer
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 
 from src.models.base import Base
-
-if TYPE_CHECKING:
-    from src.models.organization.organization import Organization
-    from src.models.activities.activity import Activity
 
 
 class OrganizationActivity(Base):
@@ -23,12 +18,3 @@ class OrganizationActivity(Base):
         ForeignKey("activity.id"),
         primary_key=True
     )
-
-    # organization: Mapped["Organization"] = relationship(
-    #     "Organization",
-    #     back_populates="organization_activity"
-    # )
-    # activity: Mapped["Activity"] = relationship(
-    #     "Activity",
-    #     back_populates="organization_activity"
-    # )
