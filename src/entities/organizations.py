@@ -8,3 +8,7 @@ class OrganizationsInBuildingSchema(BaseModel):
 
 class OrganizationsActivitySchema(BaseModel):
     name: str
+
+
+class OrganizationSchema(BaseModel):
+    name: str

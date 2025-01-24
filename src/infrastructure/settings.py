@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     POSTGRES_DB: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
+    APP_PORT: int
 
     ASYNC_DB_POOL_SIZE: int
 

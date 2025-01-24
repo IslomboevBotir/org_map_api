@@ -2,7 +2,6 @@ from http import HTTPStatus
 
 from fastapi import Depends, HTTPException
 
-from src.repositories.building.building import BuildingRepository
 from src.repositories.organizations.organizations import OrganizationRepository
 from src.entities.organizations import OrganizationsInBuildingSchema
 
