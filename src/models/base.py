@@ -1,3 +1,5 @@
 from sqlalchemy.orm import DeclarativeBase
 
-Base = DeclarativeBase()
+
+class Base(DeclarativeBase):
+    __abstract__ = True
